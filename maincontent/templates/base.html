@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}My Project{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_head %}{% endblock %}
+
+</head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function count(el) {
+            var target = parseInt(el.dataset.target, 10);
+            var duration = 1800;
+            var start = null;
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                var progress = Math.min((timestamp - start) / duration, 1);
+                el.textContent = Math.floor(progress * target);
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    el.textContent = target;
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
+        var observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    count(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        document.querySelectorAll('[data-count]').forEach(function (el) {
+            observer.observe(el);
+        });
+    });
+</script>
+
+<body>
+
+    {% include 'partial/header.html' %}
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    {% include 'partial/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

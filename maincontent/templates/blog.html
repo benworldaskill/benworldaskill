@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content%}
+
+<section class="posts">
+    <div class="container-fluid --bs-primary-border-subtle">
+
+
+        <div class="text-center mb-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center small mb-3">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none">HOME</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                </ol>
+            </nav>
+
+        </div>
+
+        <div class="text-center mb-5">
+            <p class="posts-eyebrow">The blog</p>
+            <h2 class="posts-heading">Writings from Benedict</h2>
+            <p class="posts-sub">The latest industry news, interviews, online opportunity, technologies</p>
+        </div>
+
+        <ul class="posts-tabs">
+            <li><a href="?" class="{% if not active_category %}active{% endif %}">View all</a></li>
+            {% for cat in categories %}
+            <li>
+                <a href="?category={{ cat.id }}"
+                    class="{% if active_category == cat.id|stringformat:'s' %}active{% endif %}">
+                    {{ cat.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="row">
+            {% for post in blogs %}
+            <div class="col-6 col-md-4 col-xl-3">
+                {% include 'partial/post_card.html' %}
+            </div>
+            {% empty %}
+            <p class="text-center text-muted">No posts yet.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

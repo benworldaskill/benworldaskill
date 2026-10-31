@@ -1,0 +1,7 @@
+<a href="{% url 'post_detail' post.pk %}" class="post-card">
+    <img src="{{ post.img.url }}" alt="{{ post.title }}" class="post-card-img">
+    <p class="post-meta">{{ post.author }} · {{ post.created_at|date:"d M Y" }}</p>
+    <h3 class="post-title">{{ post.title }}</h3>
+    <p class="post-excerpt">{{ post.description }}</p>
+    <span class="read-post">Read post ↗</span>
+</a>

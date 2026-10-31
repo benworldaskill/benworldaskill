@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+<section class="my-5 py-5">
+    <div class="container-fluid px-3 px-lg-5">
+
+        <!-- Heading + search box -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold mb-3">Search</h1>
+            <form action="{% url 'search' %}" method="get" role="search"
+                  class="d-flex gap-2 mx-auto" style="max-width: 520px;">
+                <input type="search" name="q" value="{{ query }}" class="form-control"
+                       placeholder="Search posts and projects" aria-label="Search" autofocus>
+                <button type="submit" class="btn btn-accent px-4">Search</button>
+            </form>
+        </div>
+
+        {% if not query %}
+            <p class="text-center text-body-secondary">Type something above to search my blog posts and projects.</p>
+
+        {% elif total == 0 %}
+            <div class="text-center">
+                <p class="mb-1">No results for “{{ query }}”.</p>
+                <p class="small text-body-secondary">
+                    Try a different word, or browse the
+                    <a href="{% url 'blog' %}">blog</a> or <a href="{% url 'projects' %}">projects</a>.
+                </p>
+            </div>
+
+        {% else %}
+            <p class="text-body-secondary mb-5">
+                {{ total }} result{{ total|pluralize }} for “{{ query }}”
+            </p>
+
+            {% if posts %}
+            <h2 class="h5 fw-bold mb-4">Blog posts ({{ posts|length }})</h2>
+            <div class="row mb-5">
+                {% for post in posts %}
+                <div class="col-6 col-md-4 col-xl-3">
+                    {% include 'partial/post_card.html' %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if projects %}
+            <h2 class="h5 fw-bold mb-4">Projects ({{ projects|length }})</h2>
+            <div class="row g-4">
+                {% for project in projects %}
+                <div class="col-12 col-md-6 col-xl-4">
+                    <a href="{% url 'project_detail' project.pk %}" class="text-decoration-none text-body d-block">
+                        <div class="ratio ratio-4x3 rounded-4 overflow-hidden bg-body-secondary mb-3">
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="object-fit-cover">
+                        </div>
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h6 fw-bold mb-1">{{ project.title }}</h3>
+                                {% if project.category %}
+                                <div class="small text-body-secondary">{{ project.category.name }}</div>
+                                {% endif %}
+                            </div>
+                            <span class="border rounded-2 px-2 py-1 small">↗</span>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

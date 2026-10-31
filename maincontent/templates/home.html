@@ -1,0 +1,308 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container-fluid">
+
+        <div class="row align-items-center g-5 gy-5">
+
+            <div class="col-lg-6">
+                <p class="hero-greeting">Hi There,</p>
+                <h1 class="hero-title">
+                    I'm Benedict Omojefe, a Nigeria based Software Engineer.
+                </h1>
+                <p class="hero-text">
+                    I discuss latest industry news, technology, lifestyle, online opportunities, and personal projects
+                    on Benworldaskill. Discover with me.
+                </p>
+
+                <div class="d-flex gap-3 mt-4">
+                    <a href="#" class="btn btn-accent">Start Reading</a>
+                    <button type="button" class="btn btn-outline-dark-custom" data-bs-toggle="modal"
+                        data-bs-target="#contactModal">Contact Me</button>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
+                <img src="{% static 'img/download.jpg' %}" alt="Portrait" class="hero-img">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="my-5 py-5">
+    <div class="container-fluid px-3 px-lg-5">
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-4 text-center text-lg-start">
+                <h2 class="h3 fw-bold mb-1">My Recent Clients</h2>
+                <p class="small text-body-secondary mb-0">Collaborations That Brought Ideas to Life</p>
+            </div>
+
+            <div class="col-lg-8">
+                <ul
+                    class="list-unstyled mb-0 d-flex flex-wrap justify-content-center justify-content-lg-around align-items-center gap-4">
+                    <a>
+                        <li class="fs-5 fw-semibold text-body-secondary">Royal Path</li>
+                    </a>
+                    <a href="#">
+                        <li class="fs-5 fw-semibold text-body-secondary">Royal Path</li>
+                    </a>
+                    <a href="#">
+                        <li class="fs-5 fw-semibold text-body-secondary">Royal Path</li>
+                    </a>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="my-5 py-5">
+    <div class="container-fluid">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5 text-center">
+                <img src="{% static 'img/images.png' %}" alt="Benedict Omojefe" class="img-fluid rounded-4"
+                    style="max-width: 420px;">
+            </div>
+
+            <div class="col-lg-7">
+                <span class="badge text-bg-light border fw-medium mb-3">About Me</span>
+                <h2 class="fw-bold mb-3">My Creative Journey</h2>
+                <p class="text-body-secondary mb-4">
+                    Write your short bio here: who you are, what you do, how many years you have been doing it,
+                    and what you enjoy building.
+                </p>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-4">
+                        <div class="h2 fw-bold mb-0">+<span data-count data-target="2">0</span></div>
+                        <div class="small text-body-secondary">Years Experience</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="h2 fw-bold mb-0">+<span data-count data-target="10">0</span></div>
+                        <div class="small text-body-secondary">Happy Clients</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="h2 fw-bold mb-0">+<span data-count data-target="5">0</span></div>
+                        <div class="small text-body-secondary">Projects Completed</div>
+                    </div>
+                </div>
+
+                <a href="{% static 'files/Omojefe Benedict CV.pdf' %}" class="btn btn-accent"
+                    download="Benedict Omojefe CV">Download My CV</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="my-5 py-5" id="services">
+    <div class="container-fluid px-3 px-lg-5">
+
+        <div class="text-center mb-5">
+            <span class="badge text-bg-light border fw-medium mb-3">Service</span>
+            <h2 class="fw-bold">Services I Offer</h2>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="border rounded-4 p-4 h-100">
+                    <div class="d-flex align-items-center gap-3 text-body-secondary small mb-4">
+                        <span>01</span>
+                        <hr class="flex-grow-1 m-0">
+                    </div>
+                    <h3 class="h5 fw-bold">Full-Stack Web Development</h3>
+                    <p class="small text-body-secondary">
+                        Complete websites and web apps, from the design on screen to the Django back end and database
+                        behind it.
+                    </p>
+                    <button type="button" class="btn btn-link p-0 fw-semibold text-decoration-none link-dark small"
+                        data-bs-toggle="modal" data-bs-target="#serviceWeb">Read more →</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-4 p-4 h-100">
+                    <div class="d-flex align-items-center gap-3 text-body-secondary small mb-4">
+                        <span>02</span>
+                        <hr class="flex-grow-1 m-0">
+                    </div>
+                    <h3 class="h5 fw-bold">Mobile App Development</h3>
+                    <p class="small text-body-secondary">
+                        Cross-platform Android and iOS apps built with Flutter from a single codebase.
+                    </p>
+                    <button type="button" class="btn btn-link p-0 fw-semibold text-decoration-none link-dark small"
+                        data-bs-toggle="modal" data-bs-target="#serviceMobile">Read more →</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-4 p-4 h-100">
+                    <div class="d-flex align-items-center gap-3 text-body-secondary small mb-4">
+                        <span>03</span>
+                        <hr class="flex-grow-1 m-0">
+                    </div>
+                    <h3 class="h5 fw-bold">Backend & API Development</h3>
+                    <p class="small text-body-secondary">
+                        Secure, scalable APIs and server logic with Django and Django REST Framework, ready for web and
+                        mobile apps.
+                    </p>
+                    <button type="button" class="btn btn-link p-0 fw-semibold text-decoration-none link-dark small"
+                        data-bs-toggle="modal" data-bs-target="#serviceBackend">Read more →</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="serviceWeb" tabindex="-1" aria-labelledby="serviceWebLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+            <div class="modal-header border-0">
+                <h2 class="modal-title h5 fw-bold" id="serviceWebLabel">Full-Stack Web Development</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-body-secondary">
+                    I build complete websites and web applications, from the design on screen to the database behind it.
+                </p>
+                <p class="fw-semibold mb-2">What you get</p>
+                <ul class="text-body-secondary">
+                    <li>Responsive design that works on phones, tablets and desktops</li>
+                    <li>Business sites, blogs, portfolios and dashboards</li>
+                    <li>Admin area so you can manage your own content</li>
+                    <li>Deployment and basic SEO setup</li>
+                </ul>
+            </div>
+            <div class="modal-footer border-0">
+                <a href="#" class="btn btn-accent">Hire me for this</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="serviceMobile" tabindex="-1" aria-labelledby="serviceMobileLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+            <div class="modal-header border-0">
+                <h2 class="modal-title h5 fw-bold" id="serviceMobileLabel">Mobile App Development</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-body-secondary">
+                    With Flutter, one codebase gives you an app for both Android and iOS, which saves time and cost.
+                </p>
+                <p class="fw-semibold mb-2">What you get</p>
+                <ul class="text-body-secondary">
+                    <li>Clean, smooth interfaces on both platforms</li>
+                    <li>Login, payments, notifications and maps</li>
+                    <li>Connection to your existing backend or a new one</li>
+                    <li>Help with publishing to the app stores</li>
+                </ul>
+            </div>
+            <div class="modal-footer border-0">
+                <a href="#" class="btn btn-accent">Hire me for this</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="serviceBackend" tabindex="-1" aria-labelledby="serviceBackendLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+            <div class="modal-header border-0">
+                <h2 class="modal-title h5 fw-bold" id="serviceBackendLabel">Backend & API Development</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-body-secondary">
+                    I design the server side that powers websites and mobile apps: data, logic, security and APIs.
+                </p>
+                <p class="fw-semibold mb-2">What you get</p>
+                <ul class="text-body-secondary">
+                    <li>REST APIs with Django REST Framework</li>
+                    <li>Database design and authentication</li>
+                    <li>Integrations such as payments and email</li>
+                    <li>Documentation so your team can build on it</li>
+                </ul>
+            </div>
+            <div class="modal-footer border-0">
+                <a href="#" class="btn btn-accent">Hire me for this</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="posts">
+    <div class="container-fluid">
+
+        <div class="text-center mb-5">
+            <p class="posts-eyebrow">The blog</p>
+            <h2 class="posts-heading">Writings from Benedict</h2>
+            <p class="posts-sub">The latest industry news, interviews, online opportunity, technologies</p>
+        </div>
+
+        <!--<ul class="posts-tabs">
+            <li><a href="?" class="{% if not active_category %}active{% endif %}">View all</a></li>
+            {% for cat in categories %}
+            <li>
+                <a href="?category={{ cat.id }}"
+                    class="{% if active_category == cat.id|stringformat:'s' %}active{% endif %}">
+                    {{ cat.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul> -->
+
+        <div class="row">
+            {% for post in posts|slice:"8" %}
+            <div class="col-6 col-md-4 col-xl-3">
+                {% include 'partial/post_card.html' %}
+            </div>
+            {% empty %}
+            <p class="text-center text-muted">No posts yet.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</section>
+<div class="text-center"><button type="button" class="btn btn-success">Discover More</button></div>
+
+
+
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+            <div class="modal-header border-0">
+                <h2 class="modal-title h5 fw-bold" id="contactModalLabel">Let's work together</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-body-secondary mb-0">
+                    Have a website, mobile app or API in mind? Send me a quick message on WhatsApp,
+                    or fill the project form if you'd like to share more details. I'll get back to you as soon as I can.
+                </p>
+            </div>
+            <div class="modal-footer border-0 flex-column flex-sm-row justify-content-sm-start gap-2">
+                <a href="https://wa.me/2349163217299?text=Hi%20Benedict%2C%20I%20found%20your%20website%20and%20would%20like%20to%20talk."
+                    target="_blank" rel="noopener" class="btn btn-outline-success w-100 w-sm-auto">Chat on WhatsApp</a>
+                <a href="{% url 'contact' %}" class="btn btn-accent w-100 w-sm-auto">Fill the form</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

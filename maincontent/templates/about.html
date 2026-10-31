@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+
+
+<section class="my-5 py-5">
+    <div class="container-fluid px-3 px-lg-5 text-center">
+        <h1 class="display-4 fw-bold mb-4">
+            Hello,
+            <img src="{% static 'img/images.png' %}" alt="Benedict Omojefe" width="72" height="72"
+                class="rounded-circle object-fit-cover align-middle mx-1">
+            I'm
+            <span class="d-block">Benedict Omojefe</span>
+        </h1>
+        <p class="text-body-secondary mx-auto mb-4" style="max-width: 560px;">
+            Software engineer from Nigeria building websites, mobile apps and APIs with Django and Flutter.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{% url 'contact' %}" class="btn btn-accent">Hire Me</a>
+            <a href="{% static 'files/Omojefe Benedict CV.pdf' %}" download
+                class="btn btn-outline-dark-custom">Resume</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="my-5 py-5">
+    <div class="container-fluid ">
+
+        <div class="text-center mb-5">
+            <span class="badge text-bg-light border fw-medium mb-3">Latest Services</span>
+            <h2 class="fw-bold">Building Software That Solves Real Problems</h2>
+            <p class="text-body-secondary mx-auto mb-0" style="max-width: 640px;">
+                From the first idea to a finished product, I design and build solutions that are fast, secure and easy
+                to use.
+            </p>
+        </div>
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-7 d-grid gap-3">
+                <div class="border rounded-4 p-4">
+                    <h3 class="h6 fw-bold mb-1"><span class="text-warning me-2">01.</span>Full-Stack Web Development
+                    </h3>
+                    <p class="small text-body-secondary mb-0">Complete websites and web apps, from the screen to the
+                        Django back end and database.</p>
+                </div>
+                <div class="border rounded-4 p-4">
+                    <h3 class="h6 fw-bold mb-1"><span class="text-warning me-2">02.</span>Mobile App Development</h3>
+                    <p class="small text-body-secondary mb-0">Android and iOS apps from a single Flutter codebase,
+                        connected to Firebase.</p>
+                </div>
+                <div class="border rounded-4 p-4">
+                    <h3 class="h6 fw-bold mb-1"><span class="text-warning me-2">03.</span>Backend &amp; API Development
+                    </h3>
+                    <p class="small text-body-secondary mb-0">Secure, scalable APIs with Django REST Framework for web
+                        and mobile clients.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-5 text-center">
+                <img src="{% static 'img/images.png' %}" alt="Benedict Omojefe" class="img-fluid rounded-5">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section class="my-5 py-5">
+    <div class="container-fluid ">
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-7">
+                <span class="badge text-bg-light border fw-medium mb-3">My Story</span>
+                <h2 class="fw-bold mb-3">A Journey Through Code</h2>
+
+                <p class="text-body-secondary">
+                    My journey in software started with curiosity about how websites and apps work behind the screen.
+                    That
+                    curiosity turned into building real projects, first for myself and then for clients. Today I work
+                    across the
+                    whole stack: Django on the server, clean interfaces on the web, and Flutter for mobile apps that run
+                    on both
+                    Android and iOS.
+                </p>
+
+                <ul class="list-unstyled d-grid gap-3 my-4">
+                    <li class="small">
+                        <span class="text-success me-2">✓</span>
+                        <strong>Learning by building:</strong> <span class="text-body-secondary">I learn best by
+                            shipping real projects, from blogs and portfolios to a full food ordering app with Firebase.
+                            learned.</span>
+                    </li>
+                    <li class="small">
+                        <span class="text-success me-2">✓</span>
+                        <strong>Full-stack skills:</strong> <span class="text-body-secondary">I handle databases, APIs,
+                            authentication and the interface, so clients deal with one developer instead of three.
+                            and projects.</span>
+                    </li>
+                    <li class="small">
+                        <span class="text-success me-2">✓</span>
+                        <strong>Focus on users:</strong> <span class="text-body-secondary">I build for the people who
+                            will use the product, so I keep things simple, responsive and reliable.</span>
+                    </li>
+                </ul>
+
+                <p class="text-body-secondary mb-0">
+                    I'm always learning and taking on new challenges. If you have a project in mind, whether it's a
+                    website,
+                    a mobile app or an API, I'd love to hear about it.
+            </div>
+
+            <div class="col-lg-5">
+
+                <div class="row g-3 mb-4">
+                    <div class="col-4">
+                        <div class="border rounded-4 p-3 text-center h-100">
+                            <div class="h2 fw-bold text-success mb-0"><span data-count data-target="2">0</span>+</div>
+                            <div class="small text-body-secondary">Years of Experience</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="border rounded-4 p-3 text-center h-100">
+                            <div class="h2 fw-bold text-primary mb-0"><span data-count data-target="10">0</span>+</div>
+                            <div class="small text-body-secondary">Happy Clients</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="border rounded-4 p-3 text-center h-100">
+                            <div class="h2 fw-bold text-warning mb-0"><span data-count data-target="5">0</span>+</div>
+                            <div class="small text-body-secondary">Projects Done</div>
+                        </div>
+                    </div>
+                </div>
+
+                <figure class="mb-0">
+                    <blockquote class="small text-body-secondary mb-2">
+                        “Benedict Built my school website and he did a great job.”
+                    </blockquote>
+                    <figcaption class="small fw-semibold">Daniel</figcaption>
+                </figure>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="my-5 py-5">
+    <div class="container-fluid ">
+
+        <div class="text-center mb-5">
+            <span class="badge text-bg-light border fw-medium mb-3">My Tools</span>
+            <h2 class="fw-bold">What I Build With</h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+            <div class="col">
+                <div class="border rounded-4 p-4 h-100">
+                    <h3 class="h6 fw-bold">Django</h3>
+                    <p class="small text-body-secondary mb-0">A Python framework I use for fast, secure web back ends.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="border rounded-4 p-4 h-100">
+                    <h3 class="h6 fw-bold">Django REST Framework</h3>
+                    <p class="small text-body-secondary mb-0">For building clean, well-structured APIs.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="border rounded-4 p-4 h-100">
+                    <h3 class="h6 fw-bold">Flutter</h3>
+                    <p class="small text-body-secondary mb-0">One codebase for Android and iOS apps.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="border rounded-4 p-4 h-100">
+                    <h3 class="h6 fw-bold">Firebase</h3>
+                    <p class="small text-body-secondary mb-0">Authentication, database and storage for mobile apps.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+{% endblock %}
