@@ -136,11 +136,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
@@ -180,8 +176,12 @@ if RENDER_HOST:
     CSRF_COOKIE_SECURE = True
 
 
-# Email (Resend HTTP API through django-anymail)
-EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
+# Email (Resend through django-anymail)
+MAILERS = {
+    "default": {
+        "BACKEND": "anymail.backends.resend.EmailBackend",
+    },
+}
 ANYMAIL = {
     "RESEND_API_KEY": os.environ.get("RESEND_API_KEY", ""),
 }
@@ -191,4 +191,4 @@ CONTACT_NOTIFY_EMAIL = os.environ.get("CONTACT_NOTIFY_EMAIL", "")
 
 # Locally, with no API key, emails print in your terminal instead of sending
 if not os.environ.get("RESEND_API_KEY"):
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    MAILERS["default"]["BACKEND"] = "django.core.mail.backends.console.EmailBackend"
