@@ -21,7 +21,7 @@ class Post(models.Model):
     author = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255)
-    description = models.CharField()
+    description = models.CharField(max_length=500)
     body = models.TextField(blank=True)
     is_published = models.BooleanField(default=True)
 
