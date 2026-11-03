@@ -61,7 +61,7 @@ def contact_me(request):
 
         messages.success(
             request, "Thanks! your message has been sent, I'll reply in 24hrs time")
-        return redirect('contact')
+        return redirect('contact_me')
 
     else:
         contact_form = ContactForm()
