@@ -21,6 +21,8 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -201,3 +203,22 @@ CONTACT_NOTIFY_EMAIL = os.environ.get("CONTACT_NOTIFY_EMAIL", "")
 # Locally, with no API key, emails print in your terminal instead of sending
 if not os.environ.get("RESEND_API_KEY"):
     MAILERS["default"]["BACKEND"] = "django.core.mail.backends.console.EmailBackend"
+
+
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"class": "logging.StreamHandler"},
+    },
+    "root": {"handlers": ["console"], "level": "WARNING"},
+    "loggers": {
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+    },
+}
