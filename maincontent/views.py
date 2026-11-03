@@ -1,5 +1,7 @@
 
 
+from .form import ContactForm
+from .models import Post, Category, Projects, ProjectCategory
 from django.db.models import Count, Q
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
@@ -13,8 +15,6 @@ logger = logging.getLogger(__name__)
 
 
 # views.py
-from .models import Post, Category, Projects, ProjectCategory
-from .form import ContactForm
 
 
 def home(request):
@@ -35,10 +35,11 @@ def post_detail(request, pk):
 
 
 def contact_me(request):
-    contact_form = ContactForm()
+
     if request.method == "POST":
+        contact_form = ContactForm(request.POST)
         if contact_form.is_valid:
-            saved =  contact_form.save()
+            saved = contact_form.save()
             messages.success(
                 "Thanks! Your message has been sent, I'll reply within 24hrs.")
             return redirect('contact_me')
@@ -58,9 +59,10 @@ def contact_me(request):
             except Exception:
                 logger.exception('Contact email failed')
 
-        messages.success(request, "Thanks! your message has been sent, I'll reply in 24hrs time")
+        messages.success(
+            request, "Thanks! your message has been sent, I'll reply in 24hrs time")
         return redirect('contact')
-            
+
     else:
         contact_form = ContactForm()
 
@@ -106,14 +108,13 @@ def blog(request):
         "active_category": category,
     })
 
+
 def about(requests):
     return render(requests, "about.html")
 
 
-
-
 def build_query(terms, fields):
-  
+
     query = Q()
     for term in terms:
         term_q = Q()
