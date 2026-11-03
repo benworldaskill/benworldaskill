@@ -42,7 +42,7 @@ def contact_me(request):
             saved = contact_form.save()
             messages.success(
                 "Thanks! Your message has been sent, I'll reply within 24hrs.")
-            return redirect('contact_me')
+            return redirect('contact')
         if settings.CONTACT_NOTIFY_EMAIL:
             try:
                 EmailMessage(
@@ -61,7 +61,7 @@ def contact_me(request):
 
         messages.success(
             request, "Thanks! your message has been sent, I'll reply in 24hrs time")
-        return redirect('contact_me')
+        return redirect('contact')
 
     else:
         contact_form = ContactForm()
